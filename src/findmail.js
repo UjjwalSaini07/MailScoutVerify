@@ -82,13 +82,7 @@ export async function findEmailByName(domain, firstName, lastName) {
   }
 }
 
-// Example usage
-findEmailByFullName("microsoft.com", "Satya Nadella");
-// findEmailByName('microsoft.com', 'Satya', 'Nadella');
-
-
-
-// Todo: Console Info
+// Todo: With Console Log Info
 // import axios from 'axios';
 // import dotenv from 'dotenv';
 
@@ -171,3 +165,6 @@ findEmailByFullName("microsoft.com", "Satya Nadella");
 //         }
 //     }
 // }
+
+// findEmailByFullName("microsoft.com", "Satya Nadella");
+// findEmailByName('microsoft.com', 'Satya', 'Nadella');
