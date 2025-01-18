@@ -27,6 +27,11 @@ export async function findEmailByFullName(domain, fullName) {
         domain: data.result.domain,
         verificationStatus: data.result.verification.status,
       };
+    } else if (data.error === "upgrade_needed") {
+      return {
+        error: "API Error: Insufficient credits. Please purchase more credits.",
+        errorDetails: data.error_explained,
+      };
     } else {
       return {
         error: "Email not found or error in response.",
@@ -35,9 +40,17 @@ export async function findEmailByFullName(domain, fullName) {
     }
   } catch (error) {
     if (error.response) {
-      throw new Error(
-        `API Error: ${error.response.data} (Status: ${error.response.status})`
-      );
+      // Check for the specific 402 status code and its message
+      if (error.response.status === 402) {
+        return {
+          error: "API Error: Insufficient credits.",
+          errorDetails: error.response.data.error_explained || "Upgrade needed.",
+        };
+      } else {
+        throw new Error(
+          `API Error: ${error.response.data} (Status: ${error.response.status})`
+        );
+      }
     } else if (error.request) {
       throw new Error(`No response received: ${error.request}`);
     } else {
@@ -63,6 +76,11 @@ export async function findEmailByName(domain, firstName, lastName) {
         domain: data.result.domain,
         verificationStatus: data.result.verification.status,
       };
+    } else if (data.error === "upgrade_needed") {
+      return {
+        error: "API Error: Insufficient credits. Please purchase more credits.",
+        errorDetails: data.error_explained,
+      };
     } else {
       return {
         error: "Email not found or error in response.",
@@ -71,9 +89,17 @@ export async function findEmailByName(domain, firstName, lastName) {
     }
   } catch (error) {
     if (error.response) {
-      throw new Error(
-        `API Error: ${error.response.data} (Status: ${error.response.status})`
-      );
+      // Check for the specific 402 status code and its message
+      if (error.response.status === 402) {
+        return {
+          error: "API Error: Insufficient credits.",
+          errorDetails: error.response.data.error_explained || "Upgrade needed.",
+        };
+      } else {
+        throw new Error(
+          `API Error: ${error.response.data} (Status: ${error.response.status})`
+        );
+      }
     } else if (error.request) {
       throw new Error(`No response received: ${error.request}`);
     } else {
@@ -81,6 +107,7 @@ export async function findEmailByName(domain, firstName, lastName) {
     }
   }
 }
+
 
 // Todo: With Console Log Info
 // import axios from 'axios';
