@@ -2,9 +2,10 @@
   "name": "mailscoutverify",
   "version": "1.0.0",
   "description": "Find and verify email addresses accurately, ensuring authenticity and reliability for seamless communication.",
-  "main": "index.js",
+  "main": "/src/verifymail.js",
+  "type": "module",
   "scripts": {
-    "test": "node test/test.js"
+    "test": "node src/verifymail.js"
   },
   "repository": {
     "type": "git",
