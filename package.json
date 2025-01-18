@@ -15,5 +15,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/UjjwalSaini07/MailScoutVerify/issues"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7"
   }
 }
