@@ -14,7 +14,7 @@
 
 // main();
 
-
+// const { verifyEmail } = require("./verifyEmail");
 import { verifyEmail } from '../src/verifymail.js';
 
 (async () => {

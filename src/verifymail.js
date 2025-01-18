@@ -1,5 +1,9 @@
 import fs from "fs/promises";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // List of role-based email addresses, used for business purposes
 const ROLE_BASED = new Set([
@@ -59,31 +63,3 @@ const verifyEmail = async (email) => {
 
 // Export the function for external use
 export { verifyEmail };
-
-
-// TODO: OUTPUT
-// ! Without Es Module
-// const { verifyEmail } = require("./verifyEmail");
-
-// (async () => {
-//   const result = await verifyEmail("test@gmail.com");
-//   console.log(result);
-//   // Output: { isValid: true, category: "personal" }
-
-//   const disposableResult = await verifyEmail("fake@tempmail.com");
-//   console.log(disposableResult);
-//   // Output: { isValid: false, category: "disposable", reason: "Disposable email addresses are not allowed" }
-// })();
-
-// ! With Es Module
-// import { verifyEmail } from './verifyEmail.js';
-
-// (async () => {
-//   const result = await verifyEmail("test@gmail.com");
-//   console.log(result);
-//   // Output: { isValid: true, category: "personal" }
-
-//   const disposableResult = await verifyEmail("fake@tempmail.com");
-//   console.log(disposableResult);
-//   // Output: { isValid: false, category: "disposable", reason: "Disposable email addresses are not allowed" }
-// })();
