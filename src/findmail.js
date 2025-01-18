@@ -14,9 +14,12 @@ if (!API_KEY) {
 async function findEmailByFullName(domain, fullName) {
     try {
         const response = await axios.post(`https://api.anymailfinder.com/v5.0/search/person.json`, {
-            api_key: API_KEY,
             domain: domain,
             full_name: fullName,
+        }, {
+            headers: {
+                Authorization: `Bearer ${API_KEY}`, // Add the Authorization header here
+            }
         });
 
         const data = response.data;
@@ -46,10 +49,13 @@ async function findEmailByFullName(domain, fullName) {
 async function findEmailByName(domain, firstName, lastName) {
     try {
         const response = await axios.post(`https://api.anymailfinder.com/v5.0/search/person.json`, {
-            api_key: API_KEY,
             domain: domain,
             first_name: firstName,
             last_name: lastName,
+        }, {
+            headers: {
+                Authorization: `Bearer ${API_KEY}`, // Add the Authorization header here
+            }
         });
 
         const data = response.data;
@@ -63,10 +69,18 @@ async function findEmailByName(domain, firstName, lastName) {
             console.log("Email not found or error in response.");
         }
     } catch (error) {
-        console.error("Error finding email:", error);
+        if (error.response) {
+            // The server responded with a status code that falls out of the range of 2xx
+            console.error("API Error Response:", error.response.data);
+            console.error("Status Code:", error.response.status);
+        } else if (error.request) {
+            console.error("No response received:", error.request);
+        } else {
+            console.error("Error", error.message);
+        }
     }
 }
 
 // Example usage
 // findEmailByFullName('microsoft.com', 'Satya Nadella');
-// findEmailByName('microsoft.com', 'Satya', 'Nadella');
+findEmailByName('microsoft.com', 'Satya', 'Nadella');
