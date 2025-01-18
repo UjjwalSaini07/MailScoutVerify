@@ -1,41 +1,53 @@
 import { verifyEmail } from './src/verifymail.js';
 import { findEmailByFullName, findEmailByName } from './src/findmail.js';
 
-(async () => {
+async function EmailVerification(testEmail) {
     try {
-        
-        console.log('\n---Verify The EMail---');
-        const testEmail = "test@gmail.com";
-        const testEmailResult = await verifyEmail(testEmail);
-        if (testEmailResult.isValid) {
-            console.log(`Passed: Verification Result for ${testEmail}:`, testEmailResult);
+        const result = await verifyEmail(testEmail);
+        if (result.isValid) {
+            console.log(`\nPassed: Verification Result for ${testEmail}:`, result);
         } else {
-            console.log(`Failed: Verification Result for ${testEmail}:`, testEmailResult);
-        }
-
-        const disposableEmail = "fake@tempmail.com";
-        const disposableEmailResult = await verifyEmail(disposableEmail);
-        if (!disposableEmailResult.isValid) {
-            console.log(`Passed: Verification Result for ${disposableEmail}:`, disposableEmailResult);
-        } else {
-            console.log(`Failed: Verification Result for ${disposableEmail}:`, disposableEmailResult);
-        }
-
-        console.log('\n---Find The EMail---');
-        const emailByFullName = await findEmailByFullName('microsoft.com', 'Satya Nadella');
-        if (emailByFullName) {
-            console.log('Passed: Result from Full Name:', emailByFullName);
-        } else {
-            console.log('Failed: Result from Full Name: Not found');
-        }
-
-        const emailByName = await findEmailByName('google.com', 'Sundar', 'Pichai');
-        if (emailByName) {
-            console.log('Passed: Result from Name:', emailByName);
-        } else {
-            console.log('Failed: Result from Name: Not found');
+            console.log(`\nFailed: Verification Result for ${testEmail}:`, result);
         }
     } catch (error) {
-        console.error('Error: Failed due to', error.message);
+        console.error('\nError verifying email:', error.message);
     }
-})();
+}
+
+async function findEmailByFullNameHandle(domain, fullName) {
+    try {
+        const result = await findEmailByFullName(domain, fullName);
+        if (result) {
+            console.log(`\nPassed: Result from Full Name (${fullName}):`, result);
+        } else {
+            console.log(`\nFailed: Result from Full Name (${fullName}): Not found`);
+        }
+    } catch (error) {
+        console.error('\nError finding email by full name:', error.message);
+    }
+}
+
+async function findEmailByNameHandle(domain, firstName, lastName) {
+    try {
+        const result = await findEmailByName(domain, firstName, lastName);
+        if (result) {
+            console.log(`\nPassed: Result from Name (${firstName} ${lastName}):`, result);
+        } else {
+            console.log(`\nFailed: Result from Name (${firstName} ${lastName}): Not found`);
+        }
+    } catch (error) {
+        console.error('\nError finding email by name:', error.message);
+    }
+}
+
+// !User Inputs
+// const testEmail = "fake@tempmail.com";
+// EmailVerification(testEmail);
+
+// const domain = 'microsoft.com';
+// const fullName = 'Satya Nadella';
+// findEmailByFullNameHandle(domain, fullName);
+
+// const firstName = 'Sundar';
+// const lastName = 'Pichai';
+// findEmailByNameHandle(domain, firstName, lastName);
