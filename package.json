@@ -1,0 +1,19 @@
+{
+  "name": "mailscoutverify",
+  "version": "1.0.0",
+  "description": "Find and verify email addresses accurately, ensuring authenticity and reliability for seamless communication.",
+  "main": "/src/verifymail.js",
+  "type": "module",
+  "scripts": {
+    "test": "node src/verifymail.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UjjwalSaini07/MailScoutVerify.git"
+  },
+  "author": "Ujjwal Saini",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UjjwalSaini07/MailScoutVerify/issues"
+  }
+}

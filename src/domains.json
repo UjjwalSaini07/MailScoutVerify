@@ -1,0 +1,32 @@
+{
+    "personal": [
+      "gmail.com", "outlook.com", "hotmail.com", "yahoo.com", "icloud.com",
+      "protonmail.com", "aol.com", "mail.com", "zoho.com", "yandex.com",
+      "me.com", "msn.com", "live.com", "ymail.com", "rocketmail.com",
+      "fastmail.com", "gmx.com", "hushmail.com", "inbox.com", "tutanota.com",
+      "mail.ru", "mailchimp.com", "icloud.com", "hey.com", "lycos.com",
+      "rediffmail.com", "t-online.de", "bluewin.ch", "web.de", "mailbox.org"
+    ],
+    "disposable": [
+      "tempmail.com", "throwawaymail.com", "10minutemail.com", "guerrillamail.com",
+      "mailinator.com", "getairmail.com", "yopmail.com", "trashmail.com",
+      "maildrop.cc", "fakeinbox.com", "mohmal.com", "mailcatch.com",
+      "temp-mail.org", "sharklasers.com", "dispostable.com", "getnada.com",
+      "mytemp.email", "temp-mail.io", "trashmail.net", "mintemail.com",
+      "fake-mail.net", "jetable.org", "mailnesia.com", "mail-temp.com", "spamgourmet.com"
+    ],
+    "educational": [
+      ".edu", ".ac.uk", ".edu.au", ".edu.in", ".edu.cn", ".edu.jp", ".edu.sg",
+      ".edu.za", ".edu.mx", ".edu.br", ".edu.my", ".edu.ph", ".edu.vn", ".edu.ar",
+      ".edu.pe", ".edu.tr", ".edu.co", ".edu.cl", ".edu.pk", ".edu.ng", ".edu.gh",
+      ".edu.ke", ".edu.sa", ".edu.eg", ".edu.lb", ".edu.ru", ".edu.pe", ".edu.tw"
+    ],
+    "blacklisted": [
+      "spam.com", "fake.com", "invalid.com", "junkmail.com", "thisisnotarealemail.com",
+      "bouncemail.com", "testmail.com", "mailtest.com", "noemail.com", "notarealemail.com",
+      "dontemailme.com", "null.net", "example.com", "bogusmail.com", "emailfake.com",
+      "fakemail.net", "trashmail.com", "disposablemail.com", "tempmail.com", "spammer.com",
+      "fakeemail.com", "dontuseemail.com", "no-reply.com", "scam.com", "spamjunk.com"
+    ]
+  }
+  
